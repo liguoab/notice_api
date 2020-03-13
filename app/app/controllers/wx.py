@@ -5,7 +5,7 @@ import requests, logging, sys
 from app.config import WX_CORPID, WX_CORPSECRET
 
 
-@app.route("/wx/apps/send")
+@app.route("/wx/apps/send", methods=['POST'])
 def wxSend():
     data = request.get_json()
 

@@ -6,7 +6,7 @@ from app.config import SLACK_WEBHOOK
 
 
 
-@app.route("/slack/send/message")
+@app.route("/slack/send/message", methods=['POST'])
 def slackSend():
     data = request.get_json()
     try:
