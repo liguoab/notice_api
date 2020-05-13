@@ -1,7 +1,6 @@
-import re
+import re, requests, logging, sys, json
 from ..main import app
-from flask import Flask, jsonify, request, abort, g
-import requests, logging, sys
+from flask import Flask, jsonify, request, abort, g 
 from app.config import WX_CORPID, WX_CORPSECRET
 
 
@@ -41,7 +40,7 @@ def wxSend():
     }
     try:
         r = requests.post(send_url, json=send_params, timeout=(10,10))
-        if r.status_code !=200:
+        if (r.status_code !=200 or json.loads(r.text)['errcode']):
             logging.info(r.text)
             return jsonify(code=1, message=r.text)
     except Exception as err:
