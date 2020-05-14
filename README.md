@@ -17,15 +17,16 @@
 
 ## Getting Started
 ### 测试环境构建
-docker build -t myimage .
-docker run -d --name mycontainer -p 9091:80 -v $(pwd)/app:/app -e FLASK_APP=app/main.py -e FLASK_DEBUG=1 myimage flask run --host=0.0.0.0 --port=80
+`docker build -t myimage .`
+`docker run -d --name mycontainer -p 9091:80 -v $(pwd)/app:/app -e FLASK_APP=app/main.py -e FLASK_DEBUG=1 myimage flask run --host=0.0.0.0 --port=80`
 
 ### 线上环境构建
-docker build -t myimage .
-docker run -d --name mycontainer -p 9091:80 myimage
+`docker build -t myimage .`
+`docker run -d --name mycontainer -p 9091:80 myimage`
 
 ### 接口描述
 > 通用返回码 code ：0 表示成功；1 表示失败
+
 #### Email 下发接口 
 接口地址
 /email/send/message
@@ -40,8 +41,8 @@ docker run -d --name mycontainer -p 9091:80 myimage
 | content | string  | 是   | 邮件内容 |
 
 返回值
-成功：{ "code": 0 }
-失败：{ "code": 1, "message": "xxx" }
+成功：`{ "code": 0 }`
+失败：`{ "code": 1, "message": "xxx" }`
 
 #### Slack 下发接口 
 接口地址
@@ -54,8 +55,8 @@ docker run -d --name mycontainer -p 9091:80 myimage
 | content | string  | 是   | 下发内容，markdown、text |
 
 返回值
-成功：{ "code": 0 }
-失败：{ "code": 1, "message": "xxx" }
+成功：`{ "code": 0 }`
+失败：`{ "code": 1, "message": "xxx" }`
 
 #### 钉钉下发接口 
 接口地址
@@ -69,8 +70,8 @@ docker run -d --name mycontainer -p 9091:80 myimage
 | atMobiles | array   | 否   | 如果 isAtAll 参数是 false，该参数不能为空 |
 
 返回值
-成功：{ "code": 0 }
-失败：{ "code": 1, "message": "xxx" }
+成功：`{ "code": 0 }`
+失败：`{ "code": 1, "message": "xxx" }`
 
 #### 微信下发接口 
 接口地址
@@ -84,5 +85,5 @@ docker run -d --name mycontainer -p 9091:80 myimage
 | content | string  | 是   | 收件人                                         |
 
 返回值
-成功：{ "code": 0 }
-失败：{ "code": 1, "message": "{\"errcode\":81013,\"errmsg\":\"user & party & tag all invalid, hint: [1589355369_79_14baebabcb4723b8ddb56d226fc7babe],\"invaliduser\":\"test\"}" }
+成功：`{ "code": 0 }`
+失败：`{ "code": 1, "message": "{\"errcode\":81013,\"errmsg\":\"user & party & tag all invalid, hint: [1589355369_79_14baebabcb4723b8ddb56d226fc7babe],\"invaliduser\":\"test\"}" }`
